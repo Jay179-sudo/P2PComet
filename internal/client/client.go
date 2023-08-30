@@ -6,6 +6,9 @@ import (
 	"net"
 	"time"
 
+	"github.com/Jay179-sudo/P2PComet/internal/bitfield"
+	"github.com/Jay179-sudo/P2PComet/internal/handshake"
+	"github.com/Jay179-sudo/P2PComet/internal/message"
 	"github.com/Jay179-sudo/P2PComet/internal/peers"
 )
 

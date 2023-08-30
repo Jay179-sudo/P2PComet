@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/Jay179-sudo/P2PComet/internal/p2p"
 	"github.com/jackpal/bencode-go"
 )
 
