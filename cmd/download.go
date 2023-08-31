@@ -4,8 +4,9 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"fmt"
+	"log"
 
+	"github.com/Jay179-sudo/P2PComet/internal/torrent"
 	"github.com/spf13/cobra"
 )
 
@@ -13,9 +14,23 @@ import (
 var downloadCmd = &cobra.Command{
 	Use:   "download",
 	Short: "Download Files",
-	Long:  `I am trying to work`,
+	Long:  `This command is used to download download and store a torrent file`,
+	Args:  cobra.ExactArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("download called")
+
+		inPath := args[0]
+		outPath := args[1]
+
+		tf, err := torrent.Open(inPath)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		err = tf.DownloadToFile(outPath)
+		if err != nil {
+			log.Fatal(err)
+		}
+
 	},
 }
 
